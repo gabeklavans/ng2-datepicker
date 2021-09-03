@@ -6,7 +6,7 @@ import {
   addMonths,
   subMonths,
   setYear,
-  eachDay,
+  eachDayOfInterval,
   getDate,
   getMonth,
   getYear,
@@ -208,7 +208,7 @@ export class NgDatepickerComponent implements ControlValueAccessor, OnInit, OnCh
     const start = startOfMonth(this.date);
     const end = endOfMonth(this.date);
 
-    this.days = eachDay(start, end).map(date => {
+    this.days = eachDayOfInterval({start, end}).map(date => {
       return {
         date: date,
         day: getDate(date),
