@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {DatepickerOptions} from '../ng-datepicker/component/ng-datepicker.component';
-import * as enLocale from 'date-fns/locale/en';
+import * as enLocale from 'date-fns/locale/en-US';
 import * as frLocale from 'date-fns/locale/fr';
 
 @Component({
