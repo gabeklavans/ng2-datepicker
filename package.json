@@ -1,16 +1,17 @@
 {
-  "name": "@gabeklavans/ng2-datepicker",
-  "version": "2.4.0",
-  "main": "./dist/bundles/ng2-datepicker.umd.js",
-  "module": "./dist/ng2-datepicker.es5.js",
-  "es2015": "./dist/ng2-datepicker.js",
-  "typings": "./dist/ng2-datepicker.d.ts",
+  "name": "@gabeklavans/ng5-datepicker",
+  "version": "2.4.2",
+  "main": "./dist/bundles/gabeklavans-ng5-datepicker.umd.js",
+  "module": "./dist/gabeklavans-ng5-datepicker.es5.js",
+  "es2015": "./dist/gabeklavans-ng5-datepicker.js",
+  "typings": "./dist/gabeklavans-ng5-datepicker.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gabeklavans/ng2-datepicker.git"
   },
   "authors": [
-    "Jan Kuri <jan@bleenco.com>"
+    "Jan Kuri <jan@bleenco.com>",
+    "Gabriel Klavans <gabeklav@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
