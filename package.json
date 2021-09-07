@@ -7,7 +7,7 @@
   "typings": "./dist/ng2-datepicker.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bleenco/ng2-datepicker.git"
+    "url": "git+https://github.com/gabeklavans/ng2-datepicker.git"
   },
   "authors": [
     "Jan Kuri <jan@bleenco.com>"
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/bleenco/ng2-datepicker/issues"
   },
-  "homepage": "https://github.com/bleenco/ng2-datepicker#readme",
+  "homepage": "https://github.com/gabeklavans/ng2-datepicker/tree/ng5-datefns2-update#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
