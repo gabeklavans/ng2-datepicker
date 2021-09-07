@@ -60,8 +60,8 @@ import * as frLocale from 'date-fns/locale/fr';
 options: DatepickerOptions = {
   minYear: 1970,
   maxYear: 2030,
-  displayFormat: 'MMM D[,] YYYY',
-  barTitleFormat: 'MMMM YYYY',
+  displayFormat: 'MMM d, yyyy',
+  barTitleFormat: 'MMMM yyyy',
   dayNamesFormat: 'dd',
   firstCalendarDay: 0, // 0 - Sunday, 1 - Monday
   locale: frLocale,

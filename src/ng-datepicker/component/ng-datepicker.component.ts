@@ -17,19 +17,20 @@ import {
   format,
   getDay,
   subDays,
-  setDay
+  setDay,
+  Locale
 } from 'date-fns';
 import { ISlimScrollOptions } from 'ngx-slimscroll';
 
 export interface DatepickerOptions {
   minYear?: number; // default: current year - 30
   maxYear?: number; // default: current year + 30
-  displayFormat?: string; // default: 'MMM D[,] YYYY'
-  barTitleFormat?: string; // default: 'MMMM YYYY'
+  displayFormat?: string; // default: 'MMM d, yyyy'
+  barTitleFormat?: string; // default: 'MMMM yyyy'
   dayNamesFormat?: string; // default 'ddd'
   barTitleIfEmpty?: string;
   firstCalendarDay?: number; // 0 = Sunday (default), 1 = Monday, ..
-  locale?: object;
+  locale?: Locale;
   minDate?: Date;
   maxDate?: Date;
 }
@@ -73,7 +74,7 @@ export class NgDatepickerComponent implements ControlValueAccessor, OnInit, OnCh
   innerValue: Date;
   displayValue: string;
   displayFormat: string;
-  date: Date;
+  date = new Date();
   barTitle: string;
   barTitleFormat: string;
   barTitleIfEmpty: string;
@@ -95,7 +96,7 @@ export class NgDatepickerComponent implements ControlValueAccessor, OnInit, OnCh
     isSelected: boolean;
     isSelectable: boolean;
   }[];
-  locale: object;
+  dateFnsOptions: object;
 
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
@@ -148,12 +149,12 @@ export class NgDatepickerComponent implements ControlValueAccessor, OnInit, OnCh
     const today = new Date(); // this const was added because during my tests, I noticed that at this level this.date is undefined
     this.minYear = this.options && this.options.minYear || getYear(today) - 30;
     this.maxYear = this.options && this.options.maxYear || getYear(today) + 30;
-    this.displayFormat = this.options && this.options.displayFormat || 'MMM D[,] YYYY';
-    this.barTitleFormat = this.options && this.options.barTitleFormat || 'MMMM YYYY';
+    this.displayFormat = this.options && this.options.displayFormat || 'MMM d, yyyy';
+    this.barTitleFormat = this.options && this.options.barTitleFormat || 'MMMM yyyy';
     this.dayNamesFormat = this.options && this.options.dayNamesFormat || 'ddd';
     this.barTitleIfEmpty = this.options && this.options.barTitleIfEmpty || 'Click to select a date';
     this.firstCalendarDay = this.options && this.options.firstCalendarDay || 0;
-    this.locale = this.options && { locale: this.options.locale } || {};
+    this.dateFnsOptions = this.options && { locale: this.options.locale } || {};
   }
 
   nextMonth(): void {
@@ -238,8 +239,8 @@ export class NgDatepickerComponent implements ControlValueAccessor, OnInit, OnCh
       });
     }
 
-    this.displayValue = this.innerValue ? format(this.innerValue, this.displayFormat, this.locale) : '';
-    this.barTitle =  this.innerValue ? format(start, this.barTitleFormat, this.locale) : this.barTitleIfEmpty;
+    this.displayValue = this.innerValue ? format(this.innerValue, this.displayFormat, this.dateFnsOptions) : '';
+    this.barTitle =  this.innerValue ? format(start, this.barTitleFormat, this.dateFnsOptions) : this.barTitleIfEmpty;
   }
 
   initYears(): void {
@@ -254,7 +255,7 @@ export class NgDatepickerComponent implements ControlValueAccessor, OnInit, OnCh
     const start = this.firstCalendarDay;
     for (let i = start; i <= 6 + start; i++) {
       const date = setDay(new Date(), i);
-      this.dayNames.push(format(date, this.dayNamesFormat, this.locale));
+      this.dayNames.push(format(date, this.dayNamesFormat, this.dateFnsOptions));
     }
   }
 
@@ -281,8 +282,8 @@ export class NgDatepickerComponent implements ControlValueAccessor, OnInit, OnCh
       this.date = val;
       this.innerValue = val;
       this.init();
-      this.displayValue = format(this.innerValue, this.displayFormat, this.locale);
-      this.barTitle = format(startOfMonth(val), this.barTitleFormat, this.locale);
+      this.displayValue = format(this.innerValue, this.displayFormat, this.dateFnsOptions);
+      this.barTitle = format(startOfMonth(val), this.barTitleFormat, this.dateFnsOptions);
     }
   }
 
