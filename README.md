@@ -2,6 +2,8 @@
 
 Angular 2+ Simple and minimal datepicker component
 
+**This is a fork that adds date-fns version 2 (2.23.0) support for the Angular5-compatible release**
+
 [![AbstruseCI](https://ci.bleenco.io/badge/6)](https://ci.bleenco.io/repo/6)
 
 <p align="center">
