@@ -1,6 +1,6 @@
 {
   "name": "@gabeklavans/ng5-datepicker",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "main": "./dist/bundles/gabeklavans-ng5-datepicker.umd.js",
   "module": "./dist/gabeklavans-ng5-datepicker.es5.js",
   "es2015": "./dist/gabeklavans-ng5-datepicker.js",
