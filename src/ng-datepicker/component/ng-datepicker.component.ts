@@ -251,8 +251,6 @@ export class NgDatepickerComponent implements ControlValueAccessor, OnInit, OnCh
   }
 
   initDayNames(): void {
-    console.log(this.dayNamesFormat);
-
     this.dayNames = [];
     const start = this.firstCalendarDay;
     for (let i = start; i <= 6 + start; i++) {
